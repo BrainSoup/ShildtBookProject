@@ -1,9 +1,8 @@
 #include <iostream>
+#include "Consts.h"
 
 using namespace std;
 
-int ConstPtrExample(const int* i);
-const int& ConstRefExample(const int& i); //const return ref type prevents from using function in lvalue
 void StaticExample(int i);
 int ComaExample();
 
@@ -22,12 +21,7 @@ void Chapter9Func()
 {
 	cout << endl << "Chapter 9. Var modifiers and Enums" << endl;
 
-	//const
-	const int i = 0;
-	int j = ConstPtrExample(&i);
-	int i1 = 0;
-	i1 = ConstRefExample(i1);	//Also may use not const var to const param
-	//ConstRefExample(i1) = 1;	//Error (const int&) is not modifiable lvalue
+	ConstExample();
 
 	//volatile
 	//Disable compile optimisation of var
@@ -51,7 +45,7 @@ void Chapter9Func()
 	cout << "ComaExample(); returns (return i, 13, i + 1, var;): " << coma << endl;
 
 	//sizeof can be used with type or variable
-	cout << "sizeof(int)= " << sizeof(int) << ", sizeof(i)= " << sizeof i << endl;
+	cout << "sizeof(int)= " << sizeof(int) << ", sizeof(i)= " << sizeof v << endl;
 
 	//sizeof also works with massives
 	int mass[10];
@@ -69,26 +63,6 @@ void Chapter9Func()
 	cout << " fruit3 : " << fruit3;
 
 	cout << endl;
-}
-
-int ConstPtrExample(const int* i)
-{
-	//int* i_ptr = i; // compile error
-	//(*i)++;	// compile error
-	i++;		// Ok
-	cout << "Pointer 'const int* i' can be modified: (i) = " << i << ", (i++) =  " << i++ << endl;
-	cout << "Pointers 'const int* i' value can't be modified." << endl;
-	return *i;
-}
-
-const int& ConstRefExample(const int& i)
-{
-	//int* i_ptr = i; // compile error
-	//(*i)++;	// compile error
-	//i++;		// compile error
-	cout << "References 'const int& i' can't be modified" << endl;
-	cout << "References 'const int& i' value can't be modified." << endl;
-	return i;
 }
 
 void StaticExample(int i)
