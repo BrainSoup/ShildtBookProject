@@ -2,38 +2,76 @@
 
 using namespace std;
 
-int ConstPtrExample(const int* i);
-const int& ConstRefExample(const int& i); //const return ref type prevents from using function in lvalue
+void ConstPtrExample(int const* x, int* const y, const int* const z, const int* *const *const *w);
+const int& ConstRefExample(const int &i, int &const j, const int &const k);
 
 void ConstExample()
 {
 	cout << endl << "Constants" << endl;
 
 	//const
-	const int i = 0;
-	int j = ConstPtrExample(&i);
-	int i1 = 0;
-	i1 = ConstRefExample(i1);	//Also may use not const var to const param
+	int a = 0, b = 0, c = 0, d = 0;
+	ConstPtrExample(&a, &b, &c, 0);
+	int i = 0, j = 0, k = 0;
+	i = ConstRefExample(i, j, k);	//Also may use not const var to const param
 	//ConstRefExample(i1) = 1;	//Error (const int&) is not modifiable lvalue
 
 	cout << endl;
 }
 
-int ConstPtrExample(const int* i)
+/// <summary>
+/// Instruction 'const' can be placed from any side of type and
+/// Pointer '*' can align to any closest instructions without changing meaning.
+/// This creates lots of confuses.
+/// Always read such params from right to left to understand
+/// Translate "*" as "pointer to"
+/// </summary>
+/// <param name="x">	(int const*)=(const int*) pointer to const int</param>
+/// <param name="y">	(int* const) const pointer to int</param>
+/// <param name="z">	(const int* const)=(int const * const) const pointer to const int</param>
+/// <param name="w">	(const int **const *const *w) pointer to double const pointer to pointer to const int</param>
+
+void ConstPtrExample(const int *x, int *const y, const int *const z, const int **const *const *w)
 {
-	//int* i_ptr = i; // compile error
-	//(*i)++;	// compile error
-	i++;		// Ok
-	cout << "Pointer 'const int* i' can be modified: (i) = " << i << ", (i++) =  " << i++ << endl;
-	cout << "Pointers 'const int* i' value can't be modified." << endl;
-	return *i;
+	//	Modify pointer
+	x++;
+	//y++;	//	Compile Error
+	//z++;	//	Compile Error
+
+	//	Modify pointer value
+	//*x = 1;	//	Compile Error
+	*y = 1;
+	//*z = 1;	//	Compile Error
+
+	// Assign int *const -> int*
+	int* i_ptr = y;
+	i_ptr++; // This pointer can be changed
+	//i_ptr = x; i_ptr = z; i_ptr = w;	// Compile Error
+
+	cout << "Pointer 'const int *' can be modified: x = " << x << ", (x++) =  " << x++ << endl;
+	cout << "Pointer 'int* const' value can be modified: *y = " << *y << ", (*y)++ =  " << (*y)++ << endl;
+	cout << "Pointer 'const int *const'  can't be modified." << endl;
 }
 
-const int& ConstRefExample(const int& i)
+/// <summary>
+/// Next example show behavior of const referrence and referrence to const
+/// As a summury const referrence is useless and work same as regular referrence
+/// </summary>
+/// <param name="i">	(int const&)=(const int&) reference to const int</param>
+/// <param name="j">	(int& const) const reference to int</param>
+/// <param name="k">	(const int& const)=(int const & const) const reference to const int</param>
+/// <returns>	referrence to const int as return type prevents from using function in lvalue</returns>	
+const int& ConstRefExample(const int& i, int &const j, const int &const k)
 {
-	//int* i_ptr = i; // compile error
-	//(*i)++;	// compile error
-	//i++;		// compile error
+	//	References can't be modified, only their values
+	//i++;	//	Compile Error
+	j++;	
+	//k++;	//	Compile Error
+
+	// Assign int &const -> int&
+	int &i_ptr = j;
+	//i_ptr = i; i_ptr = k;	// Compile Error
+
 	cout << "References 'const int& i' can't be modified" << endl;
 	cout << "References 'const int& i' value can't be modified." << endl;
 	return i;
