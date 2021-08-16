@@ -13,66 +13,69 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Chapters">
+      <UniqueIdentifier>{6dd841f5-077a-413f-8632-6c352eca1cd6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ShildtBook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BaseTypes.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Chapter9.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Chapter10.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Chapter11.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Chapter12.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Chapter3.cpp">
+      <Filter>Source Files\Chapters</Filter>
     </ClCompile>
     <ClCompile Include="Chapter4.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Chapters</Filter>
     </ClCompile>
     <ClCompile Include="Chapter5.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Chapters</Filter>
     </ClCompile>
     <ClCompile Include="Chapter6.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Chapters</Filter>
     </ClCompile>
     <ClCompile Include="Chapter8.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Chapters</Filter>
+    </ClCompile>
+    <ClCompile Include="Chapter9.cpp">
+      <Filter>Source Files\Chapters</Filter>
+    </ClCompile>
+    <ClCompile Include="Chapter10.cpp">
+      <Filter>Source Files\Chapters</Filter>
+    </ClCompile>
+    <ClCompile Include="Chapter11.cpp">
+      <Filter>Source Files\Chapters</Filter>
+    </ClCompile>
+    <ClCompile Include="Chapter12.cpp">
+      <Filter>Source Files\Chapters</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BaseTypes.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Chapter9.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Chapter10.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Chapter11.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Chapter12.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="Chapter3.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Chapter4.h">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Chapters</Filter>
     </ClInclude>
     <ClInclude Include="Chapter5.h">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Chapters</Filter>
     </ClInclude>
     <ClInclude Include="Chapter6.h">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Chapters</Filter>
     </ClInclude>
     <ClInclude Include="Chapter8.h">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Chapters</Filter>
+    </ClInclude>
+    <ClInclude Include="Chapter9.h">
+      <Filter>Source Files\Chapters</Filter>
+    </ClInclude>
+    <ClInclude Include="Chapter10.h">
+      <Filter>Source Files\Chapters</Filter>
+    </ClInclude>
+    <ClInclude Include="Chapter11.h">
+      <Filter>Source Files\Chapters</Filter>
+    </ClInclude>
+    <ClInclude Include="Chapter12.h">
+      <Filter>Source Files\Chapters</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
