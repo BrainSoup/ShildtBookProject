@@ -34,9 +34,9 @@ void Chapter11Func()
 	SimpleClass c1(1);
 	SimpleClass c1_1{ 2, 3 };
 	SimpleClass c1_2;
-	static_cast<SimpleClass>(c1_2);
-	new SimpleClass(1, 2);
-	(SimpleClass)1; // Only for 1 param constructor
+	//static_cast<SimpleClass>(c1_2); //no constructor call, but there is destructor call
+	new SimpleClass(4, 5);
+	(SimpleClass)6; // Only for 1 param constructor
 	//Some other cases
 	SimpleClass c1_3();	//No compile error, DO NOTHING, c1_3 not declared
 
@@ -49,9 +49,9 @@ void Chapter11Func()
 	//Some other cases
 
 	cout << "\n3) list-initialization" << endl;
-	cout << "SimpleClass c3{ 1,2 }; \nSimpleClass c3_1 = {3}; \nSimpleClass{};" << endl;
-	SimpleClass c3{ 1,2 };
-	SimpleClass c3_1 = {3};
+	cout << "SimpleClass c3 = {5}; \nSimpleClass c3{ 3, 4 }; \nSimpleClass{};" << endl;
+	SimpleClass c3 = {5};
+	SimpleClass c3_1{ 3, 4 };
 	SimpleClass{};
 	/*	Also passing {arguments} to function or returning from it
 	1)  SimpleClass func(SimpleClass param) {return {1};}
@@ -86,17 +86,13 @@ SimpleClass::SimpleClass(int A, int B)
 	a = A;
 	b = 2;
 	c = new int(0);
-	cout << "new " << c << endl;
 }
 
 //Destructor
 SimpleClass::~SimpleClass()
 {
 	if (c)
-	{
-		cout << "~SimpleClass: delete c = "<< c << endl;
 		delete(c);
-	}
 }
 
 void SimpleClass::SomeMethod()
