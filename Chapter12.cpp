@@ -1,4 +1,5 @@
 #include <iostream>
+#include "ColorText.h"
 
 class SimpleClass12 {
 	//private:

@@ -51,6 +51,9 @@
     <ClCompile Include="Consts.cpp">
       <Filter>Source Files\Chapters</Filter>
     </ClCompile>
+    <ClCompile Include="ColorText.cpp">
+      <Filter>Source Files\Chapters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chapter3.h">
@@ -81,6 +84,9 @@
       <Filter>Source Files\Chapters\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Consts.h">
+      <Filter>Source Files\Chapters\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorText.h">
       <Filter>Source Files\Chapters\Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Consts.h"
+#include "ColorText.h"
 
 using namespace std;
 
@@ -19,7 +20,7 @@ static int global_var_2;
 //Type specifiers
 void Chapter9Func()
 {
-	cout << endl << "Chapter 9. Var modifiers and Enums" << endl;
+	PrintColorText("\nChapter 9. Var modifiers and Enums");
 
 	ConstExample();
 

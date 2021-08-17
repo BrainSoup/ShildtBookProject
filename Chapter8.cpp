@@ -1,5 +1,5 @@
-//Chapter 8
 #include <iostream>
+#include "ColorText.h"
 
 using namespace std;
 
@@ -8,7 +8,8 @@ int& ReferenceFunc(int& p);
 
 void Chapter8Func()
 {
-    cout << endl << "Chapter 8. References and functions" << endl;
+    PrintColorText("\nChapter 8. References and functions");
+
     int p = 0;
     int p1 = 100;
     int* i_ptr = new int(10);

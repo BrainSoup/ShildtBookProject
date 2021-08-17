@@ -1,6 +1,6 @@
-﻿//Chapter 3
-#include <iostream>
+﻿#include <iostream>
 #include <string>
+#include "ColorText.h"
 
 using namespace std;
 
@@ -8,7 +8,7 @@ int global_i;
 
 void Chapter3Func()
 {
-    cout << endl << "Chapter 3. Base Types" << endl;
+    PrintColorText("\nChapter 3. Base Types");
 
     char c;
 

@@ -1,6 +1,6 @@
-//Chapter 5
 #include <iostream>
 #include <cstring>
+#include "ColorText.h"
 
 using namespace std;
 
@@ -13,7 +13,7 @@ void OutputMass(int mass[], int lenth)
 
 void Chapter5Func()
 {
-    cout << endl << "Chapter 5. Massives" << endl;
+    PrintColorText("\nChapter 5. Massives");
 
     //Simple massive declaration
     int m_int[10];//massive declared and memory allocated but not initialised

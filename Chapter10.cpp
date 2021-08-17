@@ -1,5 +1,6 @@
 #include <iostream>
 #include <bitset>
+#include "ColorText.h"
 
 using namespace std;
 
@@ -30,7 +31,7 @@ Point* StructPointers(Point* p);
 //Structs
 void Chapter10Func()
 {
-	cout << endl << "--< Chapter 10. Structs and Unions >--" << endl;
+	PrintColorText("\nChapter 10. Structs and Unions");
 
 	OutputPoint("(Global, not initialized) cout << point1 : ", point1);
 

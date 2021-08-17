@@ -1,4 +1,5 @@
 #include <iostream>
+#include "ColorText.h"
 
 using namespace std;
 
@@ -18,7 +19,7 @@ public:
 //Classes
 void Chapter11Func()
 {
-	cout << endl << "Chapter 11. Classes" << endl;
+	PrintColorText("\nChapter 11. Classes");
 
 	//Initialize new class
 	cout << "SimpleClass c = SimpleClass(); \n";

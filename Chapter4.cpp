@@ -1,12 +1,13 @@
 //Chapter 4
 #include <iostream>
 #include <string>
+#include "ColorText.h"
 
 using namespace std;
 
 void Chapter4Func()
 {
-    cout << endl << "Chapter 4. Loops" << endl;
+    PrintColorText("\nChapter 4. Loops");
 
     //Loops
     cout << "for(int i=0; i<3; i++)" << endl;
