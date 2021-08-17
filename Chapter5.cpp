@@ -16,18 +16,22 @@ void Chapter5Func()
     PrintColorText("\nChapter 5. Massives");
 
     //Simple massive declaration
-    int m_int[10];//massive declared and memory allocated but not initialised
+    int m_int[10];  //massive declared and memory allocated but not initialised
     char m_char[20];
 
     //massive initialization
     int m1_int[10] = { 0, 1, 2, 3 };
-    //m_int = { 0, 1, 2, 3 }; //massive initialization can be done only in declaration statement
+    //m_int = { 0, 1, 2, 3 };   //massive initialization can be done only in declaration statement
     cout << "int m_int[10]; Contains:";
-    OutputMass(m_int, 10); //contains trash
+    OutputMass(m_int, 10);  //contains trash
 
     //not initialized elements seted to zero during init statements
     cout << "int m1_int[10] = { 0, 1, 2, 3 }; Contains:" ;
     OutputMass(m1_int, 10);
+
+    //Massives behaves like 'type * const' in terms of assignment
+    //m_int = m1_int;   //Error can't modify massive
+    //m_int++;  //Error can't modify massive
 
     //there is no compile or runtime check on massive borders
     cout << "In 'int m1_int[10]' m1_int[11] = " << m1_int[11] << endl;
