@@ -11,6 +11,9 @@ void OutputMass(int mass[], int lenth)
     cout << endl;
 }
 
+void TestFunc1(int mass[5]) {}
+void TestFunc2(int (&mass)[5]) {} // (&mass)[5] Reference to massive
+
 void Chapter5Func()
 {
     PrintColorText("\nChapter 5. Massives");
@@ -48,4 +51,8 @@ void Chapter5Func()
     //Two dimension massive and its init
     int m3_int[][2] = { {1,2}, {2,3}, {3,4} };
     int m4_int[3][2] = { 1, 2, 3, 4, 5, 6 };
+
+    //Massive as func params
+    TestFunc1(m_int);   //Ok
+    //TestFunc2(m_int);   //int (&mass)[5] cannot be initialised with int mass[10]. There must be equal elements num
 }
