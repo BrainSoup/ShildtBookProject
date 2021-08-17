@@ -9,12 +9,21 @@ void ConstExample()
 {
 	cout << endl << "Constants" << endl;
 
-	//const
+	//Pointers
 	int a = 0, b = 0, c = 0, d = 0;
 	ConstPtrExample(&a, &b, &c, 0);
+
+	//References
 	int i = 0, j = 0, k = 0;
 	i = ConstRefExample(i, j, k);	//Also may use not const var to const param
-	//ConstRefExample(i1) = 1;	//Error (const int&) is not modifiable lvalue
+	//ConstRefExample(i1) = 1;	//Error return type (const int&) is not modifiable lvalue
+
+	//Magic with const_cast<>
+	// Write operation through the pointer, lvalue or pointer to data member resulting 
+	// from a const_cast<> that casts away a const - qualifier may produce undefined behavior
+	const int a = 1;
+	int *pa = const_cast<int *>(&a);
+	*pa = 2;	// Undefined behavior
 
 	cout << endl;
 }
