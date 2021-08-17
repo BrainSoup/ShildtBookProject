@@ -1,6 +1,6 @@
-//Chapter 6
 #include <iostream>
 #include <string>
+#include "ColorText.h"
 
 using namespace std;
 
@@ -13,8 +13,7 @@ void OutputMass(int* mass, int lenth)
 
 void Chapter6Func()
 {
-    cout << endl << "Chapter 6. Pointers" << endl;
-    int i = 10;
+    PrintColorText("\nChapter 6. Pointers");
 
     //Pointer declaration
     int* i_ptr;
