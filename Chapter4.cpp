@@ -9,6 +9,13 @@ void Chapter4Func()
 {
     PrintColorText("\nChapter 4. Loops");
 
+    //If
+    if (1)
+    {
+        //break;    //Error, break can be used only in switch and loop statements
+        //continue;   //Error, only in loop statements
+    }
+
     //Loops
     cout << "for(int i=0; i<3; i++)" << endl;
     for (int i = 0; i < 3; i++)
