@@ -37,6 +37,8 @@ void Chapter4Func()
             cout << 2;
             if (!skip)
                 break;  //Whithout "break;" instruction switch continue execution of next inctructions
+        //case 1: break;    //Compile error, 2 similar cases is prohibited
+        case -1:
         case 3:
             cout << 3;
 
