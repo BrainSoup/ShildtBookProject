@@ -1,6 +1,8 @@
 #include <iostream>
 #include "ColorText.h"
 
+//TODO virtual functions from constructor
+
 class SimpleClass12 {
 	//private:
 	int a, b;

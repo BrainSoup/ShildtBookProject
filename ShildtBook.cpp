@@ -10,6 +10,8 @@
 
 int global_var = 0;
 
+//TODO Explicit, implicit conversations between types
+
 int main()
 {
     Chapter3Func();
