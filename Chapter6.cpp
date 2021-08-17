@@ -42,8 +42,11 @@ void Chapter6Func()
     int massive[10] = {};
     int *m_ptr = massive;   //not indexed massive name generate const pointer to 0 element
     OutputMass(massive, 10);    //use massive as pointer parameter
-    massive[4] = 4; m_ptr[5] = 5;   //pointers can use indexers like massives
+    massive[4] = 4; 
+    m_ptr[5] = 5;   //pointers can use indexers like massives
     *(m_ptr + 2) = 2;   //same instruction as above
+    3[m_ptr] = 3;   //mechanics of indexers a[b] => *(a+b)
+    3[&m_ptr[3]] = 6;
     OutputMass(m_ptr, 10);
     int* m[10]; //massive of int pointers
 
