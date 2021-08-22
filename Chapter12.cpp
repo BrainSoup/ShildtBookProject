@@ -1,33 +1,11 @@
 #include <iostream>
+#include "Chapter12.h"
 #include "ColorText.h"
 using namespace std;
 
 //TODO virtual functions from constructor
 
-class SimpleClass12;	//TODO explain this
-
-//Friend class
-class FriendClass {
-public:
-	void SomeMethod(SimpleClass12 *c);
-	FriendClass() { cout << "FriendClass Constructor" << endl; };
-	FriendClass(const FriendClass & copy) { cout << "FriendClass Copy Constructor" << endl; };
-	~FriendClass() { cout << "FriendClass Destructor" << endl; };
-};
-
-class SimpleClass12 {
-	int pr_a = 0, pr_b = 0;
-public:
-	int* c = 0;
-	char * name = 0;
-	SimpleClass12(int a);
-	SimpleClass12(int a, int b, int c, const char * name);
-	~SimpleClass12();
-	const char *ToString();
-	friend void Print(SimpleClass12 &c);
-	friend void FriendClass::SomeMethod(SimpleClass12* c);
-	friend int Sum(SimpleClass12* c);
-};
+#pragma region ExampleFunctions
 
 //Friend function
 void Print(SimpleClass12 &c)
@@ -52,16 +30,18 @@ SimpleClass12 ObjValueReturn()
 //Copy constructor example
 FriendClass CopyConstructorTest(FriendClass c)
 {
-	cout << "CopyConstructorTest()" << endl;
+	cout << "\nCopyConstructorTest();\nFriendClass c1; //Basic initialisation" << endl;
 	FriendClass c1;		//Constructor
-	cout << 1 << endl;
+	cout << "\nc1 = c; //Copy object fields, constructor not called" << endl;
 	c1 = c;				//Any Constructor not called
-	cout << 2 << endl;
+	cout << "\nFriendClass c2 = c; //Explicit initialisation" << endl;
 	FriendClass c2 = c;	//Explicit initialisation (Copy Constructor)
-	cout << 3 << endl;
+	cout << "\nreturn c2;" << endl;
 						//TODO Why return don't execute Copy Constructor?
 	return c2;			//Return (No Constructor) 
 }
+
+#pragma endregion
 
 //Classes
 void Chapter12Func()
@@ -69,7 +49,7 @@ void Chapter12Func()
 	PrintColorText("\nChapter 12. Classes (Advanced)");
 
 	//Friend example
-	cout << "Friend functions and methods:" << endl;
+	PrintColorText("\nFriend functions and methods:", TextColor::BlueText);
 	SimpleClass12 c1 = SimpleClass12(1, 2, 3, "c1");
 	Print(c1);
 
@@ -77,7 +57,7 @@ void Chapter12Func()
 	fc.SomeMethod(&c1);
 
 	//Object copying
-	cout <<"\nObject copying:"<< endl;
+	PrintColorText("\nObject copying:", TextColor::BlueText);
 	SimpleClass12 c2(2, 1, 1, "c2");
 	Print(c1); Print(c2);
 	//cout << "c1 = " << (c1.Print(), "; c2 = ") << (c2.Print(),"") << endl;
@@ -89,37 +69,32 @@ void Chapter12Func()
 	c2.name = 0; //Fix double memory release
 
 	//Sending and returning objects by value
-	cout << "\nSending and returning objects by value" << endl;
+	PrintColorText("\nSending and returning objects by value", TextColor::BlueText);
 	SimpleClass12 c3 = SimpleClass12(3);
 	ObjValueParam(c3);						// Destructor will be called for c3 and for param in ObjValueParam() with same fields
 	SimpleClass12 c5 = ObjValueReturn();	// Destructor will be called for c5 and c4 wich have copied fields
 	
 	//Copy Constructor
-	cout << "\nCopy Constructor" << endl;
+	PrintColorText("\nCopy Constructor\n", TextColor::BlueText);
+	cout << "FriendClass fc1;" << endl;
 	FriendClass fc1;				//Constructor
+	cout << "\nCopyConstructorTest(fc1); //Send object by value to param" << endl;
 	FriendClass fc2 =				//Explicit initialisation (Copy Constructor)
 		CopyConstructorTest(fc1);	//Parameter initialisation (Copy Constructor)
 
 }
+
+#pragma region SimpleClass12
 
 SimpleClass12::SimpleClass12(int a)
 {
 	pr_a = a;
 }
 
-//TODO fix memory leak
-const char *SimpleClass12::ToString()
-{
-	const size_t size = 40;
-	char *result = new char[size];
-	snprintf(result, size, "( pr_a = %d, pr_b = %d, c = %d)", pr_a, pr_b, *c);
-	return result;
-}
-
-SimpleClass12::SimpleClass12(int a, int b, int c, const char * name_)
+SimpleClass12::SimpleClass12(int a, int b, int c, const char *name_)
 {
 
-	cout << "Constructor " << (name_ ? name_ : "null" )<< " (int a, int b, int c)" << endl;
+	cout << "Constructor " << (name_ ? name_ : "null") << " (int a, int b, int c)" << endl;
 	pr_a = a;
 	pr_b = b;
 	this->c = new int(c);
@@ -129,6 +104,15 @@ SimpleClass12::SimpleClass12(int a, int b, int c, const char * name_)
 		name = new char[size];
 		strcpy_s(name, size, name_);
 	}
+}
+
+//TODO fix memory leak
+const char *SimpleClass12::ToString()
+{
+	const size_t size = 40;
+	char *result = new char[size];
+	snprintf(result, size, "( pr_a = %d, pr_b = %d, c = %d)", pr_a, pr_b, *c);
+	return result;
 }
 
 SimpleClass12::~SimpleClass12()
@@ -145,7 +129,9 @@ SimpleClass12::~SimpleClass12()
 		delete(c);
 }
 
-void FriendClass::SomeMethod(SimpleClass12* c)
+#pragma endregion SimpleClass12 methods
+
+void FriendClass::SomeMethod(SimpleClass12 *c)
 {
 	cout << "FriendClass::SomeMethod(SimpleClass12* c), c->pr_a = " << c->pr_a << ", c->pr_b = " << c->pr_b << endl;
 }
