@@ -5,6 +5,8 @@ using namespace std;
 void ConstPtrExample(int const* x, int* const y, const int* const z, const int* *const *const *w);
 const int& ConstRefExample(const int &i, int &const j, const int &const k);
 
+//TODO const function members example
+
 void ConstExample()
 {
 	cout << endl << "Constants" << endl;
