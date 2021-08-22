@@ -7,11 +7,12 @@
 #include "Chapter9.h"
 #include "Chapter10.h"
 #include "Chapter11.h"
+#include "Chapter12.h"
 
 int global_var = 0;
 
 //TODO Explicit, implicit conversations between types
-
+//TODO Static examples with classes/structs
 int main()
 {
     Chapter3Func();
@@ -23,6 +24,7 @@ int main()
     Chapter9Func();
     Chapter10Func();
     Chapter11Func();
+    Chapter12Func();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

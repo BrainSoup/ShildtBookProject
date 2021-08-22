@@ -21,8 +21,8 @@ void ConstExample()
 	//Magic with const_cast<>
 	// Write operation through the pointer, lvalue or pointer to data member resulting 
 	// from a const_cast<> that casts away a const - qualifier may produce undefined behavior
-	const int a = 1;
-	int *pa = const_cast<int *>(&a);
+	const int e = 1;
+	int *pa = const_cast<int *>(&e);
 	*pa = 2;	// Undefined behavior
 
 	cout << endl;

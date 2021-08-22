@@ -49,6 +49,7 @@ void Chapter6Func()
     3[&m_ptr[3]] = 6;
     OutputMass(m_ptr, 10);
     int* m[10]; //massive of int pointers
+    //TODO add example (m_ptr = new int[];/m_ptr = int[];)
 
     //Possible pointer ariphmetic operations
     cout << "\nPointer ariphmetic operations: " << endl;
