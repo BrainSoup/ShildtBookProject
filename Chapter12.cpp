@@ -23,8 +23,8 @@ void ObjValueParam(SimpleClass12 c)	//Destructor will be called for param c
 SimpleClass12 ObjValueReturn()
 {
 	cout << "ObjValueReturn()" << endl;
-	SimpleClass12 c4(4);	//Destructor will be called for c4
-	return c4;
+	SimpleClass12 c5(5);	//Destructor will be called for c4
+	return c5;
 }
 
 //Copy constructor example
@@ -37,44 +37,56 @@ FriendClass CopyConstructorTest(FriendClass c)
 	cout << "\nFriendClass c2 = c; //Explicit initialisation" << endl;
 	FriendClass c2 = c;	//Explicit initialisation (Copy Constructor)
 	cout << "\nreturn c2;" << endl;
-						//TODO Why return don't execute Copy Constructor?
 	return c2;			//Return (No Constructor) 
+}
+
+//Copy constructor example #2
+FriendClass CopyConstructorTest2()
+{
+	cout << "\nCopyConstructorTest2();\nreturn FriendClass();" << endl;
+	return FriendClass();			//Return (No Constructor) 
 }
 
 #pragma endregion
 
-//Classes
-void Chapter12Func()
-{
-	PrintColorText("\nChapter 12. Classes (Advanced)");
+//Subchapter functions made to create separate scopes to all subchapters
+//in order to see destructors calls
+#pragma region SubchaptersFuncs
 
-	//Friend example
+void FriendKeyword()
+{
 	PrintColorText("\nFriend functions and methods:", TextColor::BlueText);
 	SimpleClass12 c1 = SimpleClass12(1, 2, 3, "c1");
 	Print(c1);
 
 	FriendClass fc;
 	fc.SomeMethod(&c1);
+}
 
-	//Object copying
+void ObjectCopying()
+{
 	PrintColorText("\nObject copying:", TextColor::BlueText);
-	SimpleClass12 c2(2, 1, 1, "c2");
-	Print(c1); Print(c2);
-	//cout << "c1 = " << (c1.Print(), "; c2 = ") << (c2.Print(),"") << endl;
-	c2 = c1;	//By default copy all fields from c1 to c2
-	cout << "c2 = c1;";
+	SimpleClass12 c2(2, 1, 1, "c2"), c3(3, 0, 0, "c3");
+	Print(c2); Print(c3);
+	c2 = c3;	//By default copy all fields from c1 to c2
+	cout << "c2 = c3; Print(c2); ";
 	Print(c2);
-	cout << "c2.c == c1.c;" << " c2.c = " << c2.c << " c1.c = " << c1.c << endl;
+	cout << "c2.c == c3.c;" << " c2.c = " << c2.c << " c3.c = " << c3.c << endl; //Pointers refers to same memory
 	c2.c = 0; //Fix double memory release
 	c2.name = 0; //Fix double memory release
+}
 
-	//Sending and returning objects by value
+void SendReturnObjects()
+{
 	PrintColorText("\nSending and returning objects by value", TextColor::BlueText);
-	SimpleClass12 c3 = SimpleClass12(3);
-	ObjValueParam(c3);						// Destructor will be called for c3 and for param in ObjValueParam() with same fields
-	SimpleClass12 c5 = ObjValueReturn();	// Destructor will be called for c5 and c4 wich have copied fields
-	
-	//Copy Constructor
+	SimpleClass12 c4 = SimpleClass12(4);
+	ObjValueParam(c4);						// Destructor will be called for c4 and for param in ObjValueParam() with same fields
+	SimpleClass12 c6 = ObjValueReturn();	// Destructor will be called for c6 and c5 wich have copied fields
+	c6.SetA(6);	//To show number in destructor
+}
+
+void CopyConstructor()
+{
 	PrintColorText("\nCopy Constructor\n", TextColor::BlueText);
 	cout << "FriendClass fc1;" << endl;
 	FriendClass fc1;				//Constructor
@@ -82,12 +94,35 @@ void Chapter12Func()
 	FriendClass fc2 =				//Explicit initialisation (Copy Constructor)
 		CopyConstructorTest(fc1);	//Parameter initialisation (Copy Constructor)
 
+	//return statement by itself don't create temp object
+	CopyConstructorTest2();	//No copy construction call
+}
+
+#pragma endregion
+
+//Classes(Advanced)
+void Chapter12Func()
+{
+	PrintColorText("\nChapter 12. Classes (Advanced)");
+
+	//Friend example
+	FriendKeyword();
+
+	//Object copying
+	ObjectCopying();
+
+	//Sending and returning objects by value
+	SendReturnObjects();
+	
+	//Copy Constructor
+	CopyConstructor();
 }
 
 #pragma region SimpleClass12
 
 SimpleClass12::SimpleClass12(int a)
 {
+	cout << "Constructor " << a << " (int a)" << endl;
 	pr_a = a;
 }
 

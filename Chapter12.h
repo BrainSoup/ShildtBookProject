@@ -24,6 +24,7 @@ public:
 	SimpleClass12(int a);
 	SimpleClass12(int a, int b, int c, const char *name);
 	~SimpleClass12();
+	void SetA(int a) { pr_a = a; };
 	const char *ToString();
 	friend void Print(SimpleClass12 &c);
 	friend void FriendClass::SomeMethod(SimpleClass12 *c);
