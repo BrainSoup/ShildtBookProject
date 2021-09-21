@@ -60,6 +60,9 @@
     <ClCompile Include="Chapter14.cpp">
       <Filter>Source Files\Chapters</Filter>
     </ClCompile>
+    <ClCompile Include="Chapter15.cpp">
+      <Filter>Source Files\Chapters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chapter3.h">
@@ -99,6 +102,9 @@
       <Filter>Source Files\Chapters\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Chapter14.h">
+      <Filter>Source Files\Chapters\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Chapter15.h">
       <Filter>Source Files\Chapters\Header Files</Filter>
     </ClInclude>
   </ItemGroup>

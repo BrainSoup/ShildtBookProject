@@ -4,6 +4,8 @@
 
 using namespace std;
 
+//TODO: Interfaces
+
 #pragma region class_tree
 
 class BaseClass {
