@@ -13,11 +13,16 @@
 #include "Chapter15.h"
 #include "Chapter16.h"
 #include "Chapter17.h"
+#include "Chapter19.h"
 
 int global_var = 0;
 
 //TODO Explicit, implicit conversations between types
 //TODO Static examples with classes/structs
+//TODO Work with files
+//TODO Multithreading
+//TODO STL
+//TODO Cross process and cross threads data transfer
 int main()
 {
     //Chapter3Func();
@@ -34,7 +39,7 @@ int main()
     //Chapter14Func();
     //Chapter15Func();
     //Chapter16Func();
-    Chapter17Func();
+    Chapter19Func();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
