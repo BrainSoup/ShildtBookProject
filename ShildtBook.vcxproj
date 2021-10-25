@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -145,6 +145,7 @@
     <ClCompile Include="Chapter16.cpp" />
     <ClCompile Include="Chapter17.cpp" />
     <ClCompile Include="Chapter19.cpp" />
+    <ClCompile Include="Chapter20.cpp" />
     <ClCompile Include="Chapter3.cpp" />
     <ClCompile Include="Chapter10.cpp" />
     <ClCompile Include="Chapter11.cpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="Chapter16.h" />
     <ClInclude Include="Chapter17.h" />
     <ClInclude Include="Chapter19.h" />
+    <ClInclude Include="Chapter20.h" />
     <ClInclude Include="Chapter3.h" />
     <ClInclude Include="Chapter10.h" />
     <ClInclude Include="Chapter11.h" />

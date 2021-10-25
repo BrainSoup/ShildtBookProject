@@ -14,6 +14,7 @@
 #include "Chapter16.h"
 #include "Chapter17.h"
 #include "Chapter19.h"
+#include "Chapter20.h"
 
 int global_var = 0;
 
@@ -39,7 +40,8 @@ int main()
     //Chapter14Func();
     //Chapter15Func();
     //Chapter16Func();
-    Chapter19Func();
+    //Chapter19Func();
+    Chapter20Func();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
