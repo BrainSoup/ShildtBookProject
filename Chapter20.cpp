@@ -4,6 +4,8 @@
 
 using namespace std;
 
+#pragma region ExampleEntities
+
 class SomeClass 
 {
 	const int c = 0;
@@ -36,6 +38,7 @@ namespace Test {
 namespace{
 	int j;
 }
+#pragma endregion
 
 void Chapter20Func()
 {
