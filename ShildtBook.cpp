@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include "Naming.h"
 #include "Chapter3.h"
 #include "Chapter4.h"
 #include "Chapter5.h"
@@ -24,10 +24,12 @@ int global_var = 0;
 //TODO Multithreading
 //TODO STL
 //TODO Cross process and cross threads data transfer
+//TODO IOC
+
 int main()
 {
+    NamingFunc();
     //Chapter3Func();
-    //std::cout << std::endl;
     //Chapter4Func();
     //Chapter5Func();
     //Chapter6Func();
