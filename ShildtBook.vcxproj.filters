@@ -75,6 +75,9 @@
     <ClCompile Include="Chapter20.cpp">
       <Filter>Source Files\Chapters</Filter>
     </ClCompile>
+    <ClCompile Include="Naming.cpp">
+      <Filter>Source Files\Chapters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chapter3.h">
@@ -129,6 +132,9 @@
       <Filter>Source Files\Chapters\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Chapter20.h">
+      <Filter>Source Files\Chapters\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Naming.h">
       <Filter>Source Files\Chapters\Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -18,13 +18,28 @@ void NamingFunc()
 	cout << "\nIdentifier: \n" << "int myVar; // myVar is identifier\n" << endl;
 
 	//Declaration specifies name and type
-	cout << "\nDeclarations: \n" << "int i;\n" << "void Foo(double d);" << endl;
+	//A declaration introduces a name into a scope
+	cout << "\nDeclarations: \n" << "extern int i; //declares i, but does not define it\n" << "void Foo(double d);" << endl;
 
 	//Definition
+	//A definition fully specifies an entity. 
+	//Definitions are where the actual creation of the entity in memory takes place.
+	//All definitions are also declarations, but not all declarations are definitions
 	cout << "\nDefinition: \n" << "const int i = x + y;\n" << "void Foo(double d) {return;}" << endl;
 
+	//Prototype
+	//A prototype is just another name for a declaration of a function
+	cout << "\nPrototype: \n" << "void Foo(int i);" << endl;
+
+	//Implementation
+	//An implementation is another name for a definition of a function
+	cout << "\nImplementation: \n" << "void Foo(int i) {return;}" << endl;
+
 	//Initialization
-	cout << "\nInitialization: \n" << "int i=0;\n" << "double j=1.1;" << endl;
+	//Initialization of a variable provides its initial value at the time of construction
+	cout << "\nInitialization: \n" << 
+		"int i(0); //Direct initialization\n" << 
+		"double j=1.1; //Copy initialization" << endl;
 
 	//l-value is variable that have address and can be assigned
 	cout << "\nL-values: \n" << "int i = 0; // i is l-value\n" << "i=13;" << endl;
