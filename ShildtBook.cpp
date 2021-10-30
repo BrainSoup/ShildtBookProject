@@ -28,7 +28,7 @@ int global_var = 0;
 
 int main()
 {
-    NamingFunc();
+    //NamingFunc();
     //Chapter3Func();
     //Chapter4Func();
     //Chapter5Func();
@@ -43,8 +43,6 @@ int main()
     //Chapter15Func();
     //Chapter16Func();
     //Chapter19Func();
-    Chapter20Func();
+    //Chapter20Func();
+    //Сpp11Func();
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu

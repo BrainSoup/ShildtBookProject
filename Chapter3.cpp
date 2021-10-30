@@ -38,7 +38,7 @@ void Chapter3Func()
     long double d1;
     string s;
 
-    //Pointer assigns in initialisation to every variable separatly
+    //Pointer assigns in declaration to every variable separatly
     int* i5, i6, *i7;
     cout << "type of (int* i5, i6, *i7;) i5 = " << typeid(i5).name() << ", i6 = " << typeid(i6).name() << ", i7 = " << typeid(i7).name() << endl;
 

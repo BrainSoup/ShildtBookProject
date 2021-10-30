@@ -17,12 +17,19 @@ void Chapter4Func()
     }
 
     //Loops
-    cout << "for(int i=0; i<3; i++)" << endl;
+    
+    //For loop work in next manner
+    //1) test the condition, if it is false, terminate
+    //2) if it is true, execute the body
+    //3) execute the incrementation step
+    //As a result preincrement and postincrement works the same
+
+    cout << "for (int i = 0; i < 3; i++)" << endl;
     for (int i = 0; i < 3; i++)
         cout << i << " ";
     cout << endl;
 
-    cout << "for(int i=0; i<3; ++i)" << endl;
+    cout << "for (int i=0; i<3; ++i)" << endl;
     for (int i = 0; i < 3; ++i)
         cout << i << " ";
     
