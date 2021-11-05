@@ -157,6 +157,7 @@
     <ClCompile Include="Chapter8.cpp" />
     <ClCompile Include="ColorText.cpp" />
     <ClCompile Include="Consts.cpp" />
+    <ClCompile Include="Cpp11.cpp" />
     <ClCompile Include="Naming.cpp" />
     <ClCompile Include="ShildtBook.cpp" />
   </ItemGroup>
@@ -179,6 +180,7 @@
     <ClInclude Include="Chapter8.h" />
     <ClInclude Include="ColorText.h" />
     <ClInclude Include="Consts.h" />
+    <ClInclude Include="Cpp11.h" />
     <ClInclude Include="Naming.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

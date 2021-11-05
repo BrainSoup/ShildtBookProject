@@ -15,6 +15,7 @@
 #include "Chapter17.h"
 #include "Chapter19.h"
 #include "Chapter20.h"
+#include "Cpp11.h"
 
 int global_var = 0;
 
@@ -25,6 +26,7 @@ int global_var = 0;
 //TODO STL
 //TODO Cross process and cross threads data transfer
 //TODO IOC
+//TODO Temp object (R-value as result of type conversation)
 
 int main()
 {
@@ -35,7 +37,7 @@ int main()
     //Chapter6Func();
     //Chapter8Func();
     //Chapter9Func();
-    //Chapter10Func();
+    ///Chapter10Func();
     //Chapter11Func();
     //Chapter12Func();
     //Chapter13Func();
@@ -44,5 +46,5 @@ int main()
     //Chapter16Func();
     //Chapter19Func();
     //Chapter20Func();
-    //Сpp11Func();
+    Cpp11::Сpp11Func();
 }
