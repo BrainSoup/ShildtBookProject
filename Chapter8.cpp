@@ -27,7 +27,7 @@ void Chapter8Func()
     i_ptr1 = &ReferenceFunc(*i_ptr);
     cout << "ReferenceFunc results: " << new_p << ", " << *i_ptr1 << endl;
 
-    //Funcs returning references can be used as left operands
+    //Funcs returning references can be used as l-value
     p = 0;
     ReferenceFunc(p) = 11;
     cout << "Result 'ReferenceFunc(p) = 11;': p=" << p << endl;
@@ -40,7 +40,7 @@ void Chapter8Func()
     cout << "int* p_r = &r; => p_r -> p " << p_r << " = " << &p << endl;
 
     //Reference of reference is not possible
-    //int& r_1 = r; //r_1 refers to p
+    int& r_1 = r; //r_1 refers to p
 
     //Array of reference is not allowed
     //int& r_1[5]; //error

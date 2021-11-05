@@ -18,7 +18,7 @@ void ConstExample()
 	//References
 	int i = 0, j = 0, k = 0;
 	i = ConstRefExample(i, j, k);	//Also may use not const var to const param
-	//ConstRefExample(i1) = 1;	//Error return type (const int&) is not modifiable lvalue
+	//ConstRefExample(i, j, k) = 1;	//Error return type (const int&) is not modifiable lvalue
 
 	//Magic with const_cast<>
 	// Write operation through the pointer, lvalue or pointer to data member resulting 
