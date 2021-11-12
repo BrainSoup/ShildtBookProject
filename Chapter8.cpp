@@ -4,7 +4,8 @@
 using namespace std;
 
 int* PointerFunc(int* p);
-int& ReferenceFunc(int& p);
+int &ReferenceFunc(int& p);
+int &ReferenceFunc(const int &p);
 
 void Chapter8Func()
 {
@@ -15,6 +16,7 @@ void Chapter8Func()
     int* i_ptr = new int(10);
 
     //Execute pointer based func
+    cout << "\nPointerFunc:" << endl;
     int new_p = *PointerFunc(&p);
     int *i_ptr1 = PointerFunc(i_ptr);
     cout << "PointerFunc results: " << new_p << ", " << *i_ptr1 << endl;
@@ -23,11 +25,21 @@ void Chapter8Func()
     *i_ptr1 = 10;
 
     //Execute reference based func
-    new_p = ReferenceFunc(p);
+    cout << "\nReferenceFunc(int& p):" << endl;
+    new_p = ReferenceFunc(p);       //l-values executes int &ReferenceFunc(int& p);
     i_ptr1 = &ReferenceFunc(*i_ptr);
-    cout << "ReferenceFunc results: " << new_p << ", " << *i_ptr1 << endl;
+    cout << "ReferenceFunc(int& p) results: " << new_p << ", " << *i_ptr1 << endl;
+
+    //Execute const reference based func
+    cout << "\nReferenceFunc(const int& p):" << endl;
+    const int c_i = 25;
+    ReferenceFunc(c_i);             //const int also uses &ReferenceFunc(const int& p);
+    new_p = ReferenceFunc(5);       //r-values executes int &ReferenceFunc(const int& p);
+    i_ptr1 = &ReferenceFunc(15);    //r-values can't be changed, and assumed as const int&
+    cout << "ReferenceFunc(const int &p) results: " << new_p << ", " << *i_ptr1 << endl;
 
     //Funcs returning references can be used as l-value
+    cout << "\nReferenceFunc as l-value:" << endl;
     p = 0;
     ReferenceFunc(p) = 11;
     cout << "Result 'ReferenceFunc(p) = 11;': p=" << p << endl;
@@ -60,8 +72,16 @@ int* PointerFunc(int* p)
     return p;
 }
 
-int& ReferenceFunc(int& p)
+int &ReferenceFunc(int& p)
 {
+    cout << "ReferenceFunc(int& p); p = "<< p << endl;
     p += 10;
     return p;
+}
+
+int &ReferenceFunc(const int &p)
+{
+    cout << "ConstReferenceFunc(const int &p); p = " << p << endl;
+    int i = 5;
+    return i;
 }
