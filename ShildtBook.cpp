@@ -26,7 +26,6 @@ int global_var = 0;
 //TODO STL
 //TODO Cross process and cross threads data transfer
 //TODO IOC
-//TODO Temp object (R-value as result of type conversation)
 //TODO conversion operators
 //TODO smart_ptr
 
