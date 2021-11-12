@@ -32,10 +32,11 @@ void Chapter8Func()
 
     //Execute const reference based func
     cout << "\nReferenceFunc(const int& p):" << endl;
+    //r-values can't be changed, and assumed as const type&
     const int c_i = 25;
     ReferenceFunc(c_i);             //const int also uses &ReferenceFunc(const int& p);
+    ReferenceFunc(p+p);             //temp variables are r-values
     new_p = ReferenceFunc(5);       //r-values executes int &ReferenceFunc(const int& p);
-    i_ptr1 = &ReferenceFunc(15);    //r-values can't be changed, and assumed as const int&
     cout << "ReferenceFunc(const int &p) results: " << new_p << ", " << *i_ptr1 << endl;
 
     //Funcs returning references can be used as l-value
