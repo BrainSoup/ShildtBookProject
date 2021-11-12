@@ -7,8 +7,8 @@ using namespace std;
 
 namespace Cpp11
 {
-
-	//constexpr func
+	#pragma region example types and funcs
+	//1)constexpr func
 	constexpr int Abs(int val)
 	{
 		return val < 0 ? -val : val;
@@ -143,6 +143,66 @@ namespace Cpp11
 		B(int a, int b) : _a{ a }, _b{b} {}
 	};
 
+	//15)Rvalue references
+	int RvalueExample() { return 0; };
+
+	//17)Lambdas
+	int Operation(int op1, int op2, int ((*f)(int op1, int op2)))
+	{
+		return (*f)(op1, op2);
+	}
+
+	//18)noexcept -- preventing exception propagation
+	// All next functions definitions are same
+	//void NoExcept() throw()
+	//void NoExcept() noexcept
+	void NoExceptions() noexcept(true)
+	{
+		throw 1;
+	}
+
+	// All next functions definitions are same
+	//void AllExceptions() throw(...)
+	void AllExceptions() noexcept(false)
+	{
+		throw 1;
+	}
+
+	//20)Override controls: override
+	struct B1 {
+		virtual void f();
+		virtual void g() const;
+		virtual void h(char);
+		void k();	// not virtual
+	};
+
+	struct D1 : B1 {
+		void f();	// overrides B1::f()
+		void g();	// doesn't override B1::g() (wrong type)
+		virtual void h(char);	// overrides B1::h()
+		void k();	// doesn't override B1::k() (B1::k() is not virtual)
+	};
+
+	//With new keyword override we get a compile error on method that can't override
+	struct D1Override : B1 {
+		void f() override;	// OK: overrides B1::f()
+		//void g() override;	// compile error: wrong type
+		virtual void h(char);	// overrides B1::h(); likely warning
+		//void k() override;	// compile error: B1::k() is not virtual
+	};
+
+	//21)Override controls: final
+	struct B2 {
+		virtual void f() const final;	// do not override
+		virtual void g();
+	};
+
+	struct D2 : B2 {
+		//void f() const; 	//compile error: D2::f attempts to override final B2::f
+		void g();			// OK
+	};
+	#pragma endregion
+
 	void Сpp11Func()
 	{
 		PrintColorText("\nStandart C++ 11\n");
@@ -274,5 +334,60 @@ namespace Cpp11
 		B b2 = { 1, 2 }; 	// the = is optional
 		B b3{ 1, 2 };
 		B *pb = new B{ 1, 2 };
+
+		cout << "\n15)Rvalue references" << endl;
+		int i = 0;
+		int &r1 = i;					// bind r1 to a (an lvalue)
+		//int &r2 = RvalueExample();	// error: f() is an rvalue; can't bind
+		
+		int &&rr1 = RvalueExample();	// fine: bind rr1 to temporary
+		//int &&rr2 = a;				// error: bind a is an lvalue
+
+		cout << "\n16)Raw string literals" << endl;
+		cout<<R"(Raw\r string\n example)"<<endl;	//Raw string \ is just a character
+
+		cout << "\n17)Lambdas" << endl;
+		// [] prefix: vars from local scope to capture
+		// [] - capture nothing
+		// [&] - capture all by references
+		// [=] - capture all by value
+		// [&Var]/[=Var] - capture local variable 'Var'
+		int op1 = 10, op2 = 5, res = 0;
+		int (*lambda)(int op1, int op2) = [](int o1, int o2) { return o1 + o2; };	//Simple lambda
+		res = Operation(op1, op2, lambda);
+
+		cout << "\n18)noexcept -- preventing exception propagation" << endl;
+		//If a function cannot throw an exception or if the program isn't written
+		//to handle exceptions thrown by a function, that function can be declared noexcept
+		//Program terminated if func with noexcept throws exception
+		//noexcept(const expr), if const expr=true func can't throw
+		try
+		{
+			AllExceptions();
+			//NoExceptions();	//Will call terminate
+		}
+		catch (...)
+		{
+			cout << "Exception catched, continue program. Typeof exception: " << endl;
+		}
+
+		cout << "\n19)alignment" << endl;
+		alignas(int) char c[100] = {1,2,3};
+		constexpr int n = alignof(int);
+		cout << "\nalign of int = " << n << endl;
+
+		cout << "\nstruct alignas(32) alignedStruct {};"<< endl;
+		struct alignas(32) alignedStruct {};
+		alignedStruct aMass[3] = {};
+		cout << hex << showbase << "&aMass[0]: " << &aMass[0] << '\n' << "&aMass[1]: " << &aMass[1] <<"\n" << "&aMass[2]: " << &aMass[2] << endl;
+
+		cout << "\n20)Override controls: override" << endl;
+		//Using explicit override helps find problems at compile time
+
+		cout << "\n21)Override controls: final" << endl;
+		//Sometimes, a programmer wants to prevent a virtual function from being overridden. This can be achieved by adding the specifier final
+
+		cout << "22)Explicit conversion operators" << endl;
+		//Conversion operators allowed to be explicit
 	}
 }
